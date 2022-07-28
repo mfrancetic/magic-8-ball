@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_magic_8_ball/features/magic_8_ball/screens/magic_8_ball_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Magic8BallApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Magic8BallApp extends StatelessWidget {
+  const Magic8BallApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Container(),
+    return const MaterialApp(
+      home: Magic8BallScreen(),
     );
   }
 }
