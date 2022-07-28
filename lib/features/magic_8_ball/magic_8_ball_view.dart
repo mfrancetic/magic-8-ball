@@ -1,7 +1,5 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Magic8BallView extends StatefulWidget {
   const Magic8BallView({Key? key}) : super(key: key);
@@ -11,6 +9,14 @@ class Magic8BallView extends StatefulWidget {
 }
 
 class _Magic8BallViewState extends State<Magic8BallView> {
+  int imageNumber = 4;
+
+  void update8BallImage() {
+    setState(() {
+      imageNumber = Random().nextInt(5) + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +25,14 @@ class _Magic8BallViewState extends State<Magic8BallView> {
           title: const Text('Ask Me Anything')),
       body: Container(
         color: Colors.blue,
-        child: Center(child: Image.asset('images/ball4.png')),
+        child: Center(
+          child: TextButton(
+            onPressed: () {
+              update8BallImage();
+            },
+            child: Image.asset('images/ball$imageNumber.png'),
+          ),
+        ),
       ),
     );
   }
